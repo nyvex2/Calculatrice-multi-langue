@@ -186,6 +186,362 @@ const words: Record<Language, Record<string, string>> = {
     constants:'الثوابت', constantsHint:'اختر ثابتاً لإضافته إلى العملية الحسابية.',
     references:'مراجع', referencesText:'معلومات مفيدة لحساباتك.',
     about:'حول التطبيق', rules:'قواعد الحساب', terms:'شروط الاستخدام', credits:'الشكر والتقدير', settings:'الإعدادات',
-    aboutText:'Adam Calculator آلة حاسبة شخصية على الويب صممها وأنشأها Adam Eddahbi. أداة هادئة وسريعة وموثوقة للحساب اليومي، مع وظائف **…**
+    aboutText:'Adam Calculator آلة حاسبة شخصية على الويب صممها وأنشأها Adam Eddahbi. أداة هادئة وسريعة وموثوقة للحساب اليومي، مع وظائف علمية في متناول اليد. تبقى حساباتك وإعداداتك في متصفحك.',
+    rulesIntro:'تتبع الآلة الحاسبة القواعد الرياضية المألوفة دون تقريب خفي.',
+    ruleOrder:'ترتيب العمليات', ruleOrderText:'تُحسب الأقواس أولاً، ثم الدوال، ثم القوى، فالضرب والقسمة، ثم الجمع والطرح. تُحسب القوى من اليمين إلى اليسار.',
+    rulePercent:'النسب المئوية', rulePercentText:'تحوّل علامة % القيمة السابقة إلى كسر من مئة. مثلاً، 25% تساوي 0.25.',
+    ruleAngles:'الزوايا', ruleAnglesText:'تستخدم الدوال المثلثية وضع DEG (الدرجات) افتراضياً. بدّل إلى RAD لاستخدام الراديان.',
+    ruleVerify:'تحقّق من النتائج', ruleVerifyText:'تحقّق بشكل مستقل من النتائج المهمة قبل الاعتماد عليها.',
+    ruleResponsible:'الاستخدام المسؤول', ruleResponsibleText:'استخدم الأداة بتأنٍ وعلى مسؤوليتك.',
+    ruleSecurity:'استخدام الموقع', ruleSecurityText:'يُحظر محاولة تعطيل الموقع أو إتلافه أو تجاوز طريقة عمله.',
+    termsText:'Adam Calculator أداة شخصية مجانية وليست خدمة مقدمة من شركة. باستخدامك للموقع، فإنك توافق على هذه الشروط. يمكنك استخدام الآلة الحاسبة للحسابات الشخصية المعتادة. تُحسب النتائج محلياً وقد لا تكون دقيقة؛ تحقّق منها قبل الاعتماد عليها، خاصة في السياقات المهنية أو المالية أو المتعلقة بالسلامة. تُقدّم الخدمة دون ضمانات، ويخلي منشئها مسؤوليته عن عواقب استخدامها بالقدر الذي يسمح به القانون. يخضع اسم الموقع ومحتواه ورمزه لحقوق أصحابها. قد تتغير الخدمة أو هذه الشروط دون إشعار مسبق. لا نضمن استمرار توفر الخدمة. للاستفسارات، تواصل مع منشئها Adam Eddahbi.',
+    termsAcceptance:'قبول الشروط', termsAcceptanceText:'باستخدام الموقع، فإنك توافق على هذه الشروط.',
+    termsUse:'استخدام الخدمة', termsUseText:'يمكنك استخدام الآلة الحاسبة للحسابات الشخصية المعتادة. يُحظر محاولة تعطيل الموقع أو تجاوز طريقة عمله.',
+    termsAccuracy:'دقة النتائج', termsAccuracyText:'النتائج إرشادية وقد تتضمن أخطاء أو تقريباً.',
+    termsResponsibility:'المسؤولية', termsResponsibilityText:'تحقّق من النتائج المهمة. يخلي المنشئ مسؤوليته عن استخدام الأداة بالقدر الذي يسمح به القانون.',
+    termsIntellectual:'الملكية الفكرية', termsIntellectualText:'يخضع الاسم والمحتوى والرمز لحقوق أصحابها. لا يدّعي Adam Calculator أنه شركة مسجلة.',
+    termsChanges:'تغييرات الخدمة', termsChangesText:'قد تتغير الخدمة وشروطها لتصحيح التطبيق أو تحسينه.',
+    termsAvailability:'التوفر', termsAvailabilityText:'تُقدّم الخدمة مجاناً دون ضمان لاستمرار عملها أو توفرها.',
+    termsContact:'التواصل', termsContactText:'للاستفسارات، تواصل مع المنشئ Adam Eddahbi عبر قناة مشروع Replit التي شاركك من خلالها الآلة الحاسبة.',
+    creditsText:'Adam Calculator — أنشأه Adam Eddahbi. طُوّر بعناية للويب باستخدام أدوات مفتوحة المصدر. شكراً لاستخدامك.',
+    language:'اللغة', appearance:'المظهر', darkMode:'المظهر الداكن', darkHint:'ألوان مريحة في الإضاءة المنخفضة.',
+    angleSetting:'وحدة الزاوية', clearHistory:'مسح السجل',
+    animations:'الحركات', animationsHint:'انتقالات هادئة بين التفاعلات.', close:'إغلاق', chooseLanguage:'اختر اللغة', light:'فاتح', dark:'داكن',
+    errorSyntax:'تعبير غير صالح', errorDivide:'لا يمكن القسمة على صفر', errorDomain:'القيمة خارج مجال الدالة', errorNumber:'النتيجة ليست عدداً منتهياً',
+    copy:'نسخ النتيجة', copied:'تم النسخ', clearEntry:'مسح', delete:'حذف للخلف', allClear:'مسح الكل', decimal:'فاصلة عشرية',
+    menu:'فتح القائمة', languageMenu:'تغيير اللغة', author:'أنشأه Adam Eddahbi', copyright:'© 2026 Adam Calculator',
+    sin:'جا', cos:'جتا', tan:'ظا', asin:'جا⁻¹', acos:'جتا⁻¹', atan:'ظا⁻¹', log:'لوغ', ln:'لن', exp:'أس', sqrt:'√', square:'x²', power:'xʸ', inverse:'1/x', factorial:'n!', abs:'|x|', modulo:'باقي القسمة', floor:'⌊x⌋', ceil:'⌈x⌉', round:'تقريب',
+    pi:'باي', euler:'أويلر', sqrt2:'الجذر التربيعي لـ 2', phi:'النسبة الذهبية',
+    lengthM:'متر', lengthKm:'كيلومتر', lengthCm:'سنتيمتر', lengthMi:'ميل', lengthFt:'قدم', lengthIn:'بوصة',
+    massKg:'كيلوغرام', massG:'غرام', massLb:'رطل', massOz:'أونصة',
+    tempC:'مئوية', tempF:'فهرنهايت', tempK:'كلفن',
+    volL:'لتر', volMl:'مليلتر', volM3:'متر مكعب', volGal:'غالون أمريكي',
+    timeS:'ثانية', timeMin:'دقيقة', timeH:'ساعة', timeDay:'يوم',
+    referencePi:'π ≈ 3.141592653589793 — نسبة محيط الدائرة إلى قطرها.',
+    referenceE:'e ≈ 2.718281828459045 — أساس اللوغاريتم الطبيعي.',
+    referenceGolden:'φ ≈ 1.618033988749895 — النسبة الذهبية، الحل الموجب للمعادلة x² − x − 1 = 0.',
+    referenceConversions:'1 بوصة = 2.54 سم · 1 ميل = 1.609344 كم · 1 رطل = 0.45359237 كغ.',
+    referenceSin:'sin(x) — جيب الزاوية x.',
+    referenceCos:'cos(x) — جيب تمام الزاوية x.',
+    referenceTan:'tan(x) — ظل الزاوية x.',
+    referenceLog:'log(x) — اللوغاريتم العشري (أساسه 10).',
+    referenceLn:'ln(x) — اللوغاريتم الطبيعي (أساسه e).',
+    referenceSquare:'x² — مربع x، أي ضربه في نفسه.',
+    referenceSqrt:'√x — الجذر التربيعي الرئيسي للعدد x.',
+    referencePower:'xʸ — رفع x إلى القوة y.',
+    referenceAngles:'تُحسب الزوايا بالدرجات (DEG) أو بالراديان (RAD) حسب الإعداد.',
+  },
+};
 
-_This response is too long to display in full._
+const languages: { id: Language; flag: string; label: string }[] = [
+  { id:'fr', flag:'🇫🇷', label:'Français' }, { id:'en', flag:'🇬🇧', label:'English' },
+  { id:'es', flag:'🇪🇸', label:'Español' }, { id:'ar', flag:'🇸🇦', label:'العربية' },
+];
+const unitGroups: Record<string, { id: string; factor: number }[]> = {
+  length:[{id:'lengthM',factor:1},{id:'lengthKm',factor:1000},{id:'lengthCm',factor:.01},{id:'lengthMi',factor:1609.344},{id:'lengthFt',factor:.3048},{id:'lengthIn',factor:.0254}],
+  mass:[{id:'massKg',factor:1},{id:'massG',factor:.001},{id:'massLb',factor:.45359237},{id:'massOz',factor:.028349523125}],
+  volume:[{id:'volL',factor:1},{id:'volMl',factor:.001},{id:'volM3',factor:1000},{id:'volGal',factor:3.785411784}],
+  time:[{id:'timeS',factor:1},{id:'timeMin',factor:60},{id:'timeH',factor:3600},{id:'timeDay',factor:86400}],
+  temperature:[{id:'tempC',factor:1},{id:'tempF',factor:1},{id:'tempK',factor:1}],
+};
+const constants = [
+  {id:'pi', labelKey:'pi', value:'pi', shown:'π'},
+  {id:'e', labelKey:'euler', value:'e', shown:'e'},
+  {id:'sqrt2', labelKey:'sqrt2', value:'sqrt(2)', shown:'√2'},
+  {id:'phi', labelKey:'phi', value:'1.618033988749895', shown:'φ'},
+];
+
+function calculate(source: string, radians: boolean, answer = 0): number {
+  const cleaned = source.trim().replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/,/g,'.').replace(/π/g,'pi');
+  const tokenPattern = /\s*((?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?|[a-zA-Z]+|[+\-*/^()%!])/gy;
+  const tokens: string[] = [];
+  let index = 0;
+  while (index < cleaned.length) {
+    tokenPattern.lastIndex = index;
+    const match = tokenPattern.exec(cleaned);
+    if (!match) throw new Error('syntax');
+    tokens.push(match[1]); index = tokenPattern.lastIndex;
+  }
+  let pos = 0;
+  const peek = () => tokens[pos];
+  const take = () => tokens[pos++];
+  const angle = (x: number) => radians ? x : x * Math.PI / 180;
+  const unangle = (x: number) => radians ? x : x * 180 / Math.PI;
+  const functions: Record<string,(x:number)=>number> = {
+    sin:x=>Math.sin(angle(x)), cos:x=>Math.cos(angle(x)), tan:x=>Math.tan(angle(x)),
+    asin:x=>unangle(Math.asin(x)), acos:x=>unangle(Math.acos(x)), atan:x=>unangle(Math.atan(x)),
+    sqrt:Math.sqrt, abs:Math.abs, log:Math.log10, ln:Math.log, exp:Math.exp,
+    floor:Math.floor, ceil:Math.ceil, round:Math.round,
+  };
+  const functionNames = new Set(Object.keys(functions));
+  const isValueEnd = (token: string) => /^\d/.test(token) || ['pi','e','ans',')','!','%'].includes(token);
+  const isValueStart = (token: string) => /^\d/.test(token) || ['pi','e','ans','('].includes(token) || functionNames.has(token);
+  const joined: string[] = [];
+  for (let i=0;i<tokens.length;i++) {
+    const previous=tokens[i-1], current=tokens[i];
+    if (previous && isValueEnd(previous) && isValueStart(current)) joined.push('*');
+    joined.push(current);
+  }
+  tokens.splice(0,tokens.length,...joined);
+  const factorial = (x:number) => {
+    if (x < 0 || !Number.isInteger(x) || x > 170) throw new Error('domain');
+    let result = 1; for(let n=2;n<=x;n++) result *= n; return result;
+  };
+  const primary = (): number => {
+    const t = take();
+    if (!t) throw new Error('syntax');
+    if (t === '+' || t === '-') { const v = primary(); return t === '-' ? -v : v; }
+    if (t === '(') { const v = add(); if (take() !== ')') throw new Error('syntax'); return v; }
+    if (/^\d/.test(t)) return Number(t);
+    if (t === 'pi') return Math.PI;
+    if (t === 'e') return Math.E;
+    if (t === 'ans') return answer;
+    if (functions[t]) {
+      if (take() !== '(') throw new Error('syntax');
+      const v = add(); if (take() !== ')') throw new Error('syntax');
+      const out = functions[t](v); if (Number.isNaN(out)) throw new Error('domain'); return out;
+    }
+    throw new Error('syntax');
+  };
+  const postfix = (): number => {
+    let value = primary();
+    while (peek() === '%' || peek() === '!') {
+      const op = take();
+      value = op === '%' ? value / 100 : factorial(value);
+    }
+    return value;
+  };
+  const power = (): number => {
+    const left = postfix();
+    if (peek() === '^') { take(); return left ** unary(); }
+    return left;
+  };
+  const unary = (): number => {
+    if (peek() === '+' || peek() === '-') { const op=take(); const v=unary(); return op==='-'?-v:v; }
+    return power();
+  };
+  const multiply = (): number => {
+    let v = unary();
+    while (peek() === '*' || peek() === '/' || peek() === 'mod') {
+      const op=take(), rhs=unary();
+      if((op==='/' || op==='mod') && rhs===0) throw new Error('divide');
+      v=op==='*'?v*rhs:op==='mod'?v%rhs:v/rhs;
+    }
+    return v;
+  };
+  const add = (): number => {
+    let v=multiply();
+    while(peek()==='+'||peek()==='-'){const op=take(),rhs=multiply();v=op==='+'?v+rhs:v-rhs;}
+    return v;
+  };
+  if (!tokens.length) return 0;
+  const result = add();
+  if (pos !== tokens.length) throw new Error('syntax');
+  if (!Number.isFinite(result)) throw new Error('number');
+  return result;
+}
+
+function App() {
+  const [lang,setLang] = useState<Language>(() => {
+    const saved=localStorage.getItem('adam-language');
+    return saved==='en'||saved==='es'||saved==='ar'||saved==='fr'?saved:'fr';
+  });
+  const [dark,setDark] = useState(() => localStorage.getItem('adam-dark') === 'true');
+  const [motion,setMotion] = useState(() => localStorage.getItem('adam-motion') !== 'false');
+  const [mode,setMode] = useState<Mode>('basic');
+  const [screen,setScreen] = useState<Screen>('calculator');
+  const [expression,setExpression] = useState('');
+  const [error,setError] = useState('');
+  const [result,setResult] = useState('');
+  const [radians,setRadians] = useState(() => localStorage.getItem('adam-radians') === 'true');
+  const [drawer,setDrawer] = useState(false);
+  const [modal,setModal] = useState<'language'|null>(null);
+  const [history,setHistory] = useState<HistoryEntry[]>(() => {
+    try { return JSON.parse(localStorage.getItem('adam-history') || '[]') as HistoryEntry[]; } catch { return []; }
+  });
+  const [group,setGroup] = useState('length');
+  const [unitFrom,setUnitFrom] = useState('lengthM');
+  const [unitTo,setUnitTo] = useState('lengthKm');
+  const [unitValue,setUnitValue] = useState('1');
+  const [copied,setCopied] = useState(false);
+  const t = (key:string) => words[lang][key] || words.en[key] || key;
+  const rtl = lang === 'ar';
+
+  useEffect(() => { localStorage.setItem('adam-language',lang); document.documentElement.lang=lang; document.documentElement.dir=rtl?'rtl':'ltr'; },[lang,rtl]);
+  useEffect(() => { localStorage.setItem('adam-dark',String(dark)); document.documentElement.classList.toggle('dark',dark); },[dark]);
+  useEffect(() => { localStorage.setItem('adam-motion',String(motion)); document.documentElement.classList.toggle('no-motion',!motion); },[motion]);
+  useEffect(() => { localStorage.setItem('adam-radians',String(radians)); },[radians]);
+  useEffect(() => { localStorage.setItem('adam-history',JSON.stringify(history)); },[history]);
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setDrawer(false); setModal(null); return; }
+      if (modal || screen !== 'calculator') return;
+      if (/^[0-9]$/.test(event.key) || ['.','+','-','*','/','^','(',')','%'].includes(event.key)) { event.preventDefault(); append(event.key); }
+      else if (event.key === 'Enter' || event.key === '=') { event.preventDefault(); solve(); }
+      else if (event.key === 'Backspace') { event.preventDefault(); removeLast(); }
+      else if (event.key === 'Delete') clearAll();
+    };
+    window.addEventListener('keydown',onKey); return () => window.removeEventListener('keydown',onKey);
+  });
+
+  const append = (value:string) => { setError(''); setExpression(prev => prev + value); };
+  const clearAll = () => { setExpression(''); setResult(''); setError(''); };
+  const removeLast = () => { setError(''); setExpression(prev => prev.slice(0,-1)); };
+  const solve = () => {
+    try {
+      const output=calculate(expression,radians,Number(result)||0);
+      const formatted=Number(output.toPrecision(12)).toString();
+      setResult(formatted); setError('');
+      if(expression.trim()) setHistory(prev => [{id:`${Date.now()}-${Math.random()}`,expression,result:formatted},...prev].slice(0,40));
+    } catch (e) {
+      const code = e instanceof Error ? e.message : 'syntax';
+      setError(t(code === 'divide' ? 'errorDivide' : code === 'domain' ? 'errorDomain' : code === 'number' ? 'errorNumber' : 'errorSyntax'));
+    }
+  };
+  const useHistory = (item:HistoryEntry) => { setExpression(item.expression); setResult(item.result); setError(''); setScreen('calculator'); };
+  const insertConstant = (value:string) => { setScreen('calculator'); setExpression(prev=>prev+value); setError(''); };
+  const screenTitle = screen === 'calculator' ? t('calculator') : t(screen);
+  const conversionOutput = useMemo(() => {
+    const n=Number(unitValue);
+    if(!Number.isFinite(n)) return '—';
+    if(group==='temperature') {
+      const c=unitFrom==='tempF'?(n-32)*5/9:unitFrom==='tempK'?n-273.15:n;
+      const out=unitTo==='tempF'?c*9/5+32:unitTo==='tempK'?c+273.15:c;
+      return Number(out.toPrecision(10)).toLocaleString(lang==='fr'?'fr-FR':lang==='es'?'es-ES':lang==='ar'?'ar':'en-US');
+    }
+    const all=unitGroups[group] || unitGroups.length;
+    const resultN=n*(all.find(x=>x.id===unitFrom)?.factor||1)/(all.find(x=>x.id===unitTo)?.factor||1);
+    return Number(resultN.toPrecision(10)).toLocaleString(lang==='fr'?'fr-FR':lang==='es'?'es-ES':lang==='ar'?'ar':'en-US');
+  },[unitFrom,unitTo,unitValue,group,lang]);
+  const selectGroup = (next:string) => {
+    setGroup(next);
+    const items=unitGroups[next] || unitGroups.length;
+    setUnitFrom(items[0].id); setUnitTo(items[1]?.id || items[0].id);
+  };
+  const units=unitGroups[group] || unitGroups.length;
+
+  const navItems: {id:Screen; icon: typeof Calculator}[] = [
+    {id:'calculator',icon:Calculator},{id:'history',icon:History},
+    {id:'converter',icon:ArrowLeftRight},{id:'constants',icon:FlaskConical},{id:'references',icon:BookOpen},
+    {id:'about',icon:Info},{id:'rules',icon:AlignLeft},{id:'terms',icon:Shield},{id:'credits',icon:Check},{id:'settings',icon:Settings2},
+  ];
+  const menuGroups: {label:string;items:Screen[]}[] = [
+    {label:'calculator',items:['calculator','history']},
+    {label:'tools',items:['converter','constants','references']},
+    {label:'information',items:['about','rules','terms','credits']},
+    {label:'settings',items:['settings']},
+  ];
+  const calcKey = (label:string, value:string, cls='') => <button key={`${label}-${value}`} type="button" data-testid={`key-${value}`} aria-label={label} className={`key ${cls}`} onClick={()=>{
+    if(value==='AC') clearAll();
+    else if(value==='DEL') removeLast();
+    else if(value==='=') solve();
+    else if(value==='NEG') { setError(''); setExpression(prev=>prev ? `(${prev})*-1` : '-'); }
+    else if(value==='SQUARE') append('^2');
+    else if(value==='SQRT') append('sqrt(');
+    else if(value==='INV') { setError(''); setExpression(prev=>prev ? `1/(${prev})` : '1/('); }
+    else if(value==='MOD') append(' mod ');
+    else append(value);
+  }}>{label}</button>;
+  const scientificKeys: [string,string][] = [
+    ['sin','sin('],['cos','cos('],['tan','tan('],['asin','asin('],['acos','acos('],['atan','atan('],
+    ['log','log('],['ln','ln('],['exp','exp('],['sqrt','sqrt('],['square','^2'],['power','^'],
+    ['inverse','INV'],['factorial','!'],['abs','abs('],['modulo','MOD'],['pi','pi'],['e','e'],['(', '('],[')',')'],
+  ];
+  const extendedKeys: [string,string][] = [
+    ...scientificKeys,['floor','floor('],['ceil','ceil('],['round','round('],
+  ];
+  const useCopy = async () => { if(result){try{await navigator.clipboard.writeText(result);setCopied(true);window.setTimeout(()=>setCopied(false),1300);}catch{setCopied(false);}} };
+
+  return <div className="app-shell" dir={rtl?'rtl':'ltr'}>
+    <header className="topbar">
+      <div className="brand"><button className="icon-button" onClick={()=>setDrawer(true)} aria-label={t('menu')} data-testid="button-open-menu"><Menu size={19}/></button><div className="brand-mark">A</div><span className="brand-name">Adam Calculator</span></div>
+      <div className="top-actions">
+        <button className="language-trigger" onClick={()=>setModal('language')} aria-label={t('languageMenu')} data-testid="button-language"><Globe2 size={16}/><span>{languages.find(x=>x.id===lang)?.flag}</span><span className="mobile-hide">{lang.toUpperCase()}</span><ChevronDown size={13}/></button>
+        <button className="icon-button" onClick={()=>setDark(v=>!v)} aria-label={dark?t('light'):t('dark')} data-testid="button-theme">{dark?<Sun size={18}/>:<Moon size={18}/>}</button>
+      </div>
+    </header>
+    <main className="page-wrap">
+      <div className="intro-row">
+        <div><div className="eyebrow">{t('author')}</div><h1 className="page-title">{screenTitle}</h1><p className="subtitle">{screen==='calculator'?t('subtitle'):screen==='converter'?t('convertHint'):screen==='constants'?t('constantsHint'):screen==='references'?t('referencesText'):screen==='history'?t('historyHint'):''}</p></div>
+        {screen==='calculator'&&<div className="mode-switch" role="tablist" aria-label={t('calculator')}>{(['basic','scientific','advanced'] as Mode[]).map(m=><button type="button" role="tab" aria-selected={mode===m} className={mode===m?'active':''} key={m} onClick={()=>setMode(m)} data-testid={`mode-${m}`}>{t(m)}</button>)}</div>}
+      </div>
+      {screen==='calculator'&&<div className="workspace">
+        <section className="panel calc-panel" aria-label={t('calculator')}>
+          <div className="display" aria-live="polite">
+            <div className="display-top"><span>{t('ready')}</span><span>{t('expression')}</span></div>
+            <div className="display-expression">{expression || ' '}</div>
+            <div className={`display-result ${error?'error':''}`} data-testid="text-calculator-result">{error||result||'0'}</div>
+            <div className="display-footer"><span>{t('memory')}</span><div style={{display:'flex',alignItems:'center',gap:9}}><button className="angle-toggle" onClick={useCopy} aria-label={t('copy')} data-testid="button-copy-result"><Copy size={14}/>{copied?t('copied'):''}</button><button className="angle-toggle" onClick={()=>setRadians(v=>!v)} data-testid="button-angle">{t('angle')} · {radians?t('radians'):t('degrees')}</button></div></div>
+          </div>
+          {mode!=='basic'&&<div className="advanced-keys">
+            {(mode==='advanced'?extendedKeys:scientificKeys).map(([label,val])=>calcKey(t(label)||label,val,'utility small'))}
+          </div>}
+          <div className="keypad">
+            {calcKey(t('allClear'),'AC','utility')}{calcKey('±','NEG','utility')}{calcKey('%','%','utility')}{calcKey('÷','/','operator')}
+            {calcKey('7','7')}{calcKey('8','8')}{calcKey('9','9')}{calcKey('×','*','operator')}
+            {calcKey('4','4')}{calcKey('5','5')}{calcKey('6','6')}{calcKey('−','-','operator')}
+            {calcKey('1','1')}{calcKey('2','2')}{calcKey('3','3')}{calcKey('+','+','operator')}
+            {calcKey('(','(','utility')}{calcKey(')',')','utility')}{calcKey(t('square'),'SQUARE','utility')}{calcKey(t('sqrt'),'SQRT','utility')}
+            {calcKey('⌫','DEL','utility')}{calcKey('0','0','wide')}{calcKey(lang==='fr'||lang==='es'?',':'.','.')}{calcKey('=','=','equals wide-full')}
+          </div>
+        </section>
+        <section className="panel utility-panel">
+          <div className="section-head"><h2 className="section-title">{t('history')}</h2>{history.length>0&&<button className="text-button" onClick={()=>setHistory([])} data-testid="button-clear-history">{t('clear')}</button>}</div>
+          {history.length===0?<div className="empty-state"><div className="empty-mark"><History size={20}/></div><strong>{t('noHistory')}</strong><span>{t('historyHint')}</span></div>:<div className="history-list">{history.map(item=><button className="history-item" key={item.id} onClick={()=>useHistory(item)} data-testid={`history-item-${item.id}`}><span className="history-expression">{item.expression}</span><span className="history-result">= {item.result}</span></button>)}</div>}
+          <div style={{marginTop:22,borderTop:'1px solid hsl(var(--border) / .7)',paddingTop:17}}><div className="section-head"><h2 className="section-title">{t('constants')}</h2><button className="text-button" onClick={()=>setScreen('constants')}>{t('references')}</button></div><div className="constants-row">{constants.map(c=><button className="constant-chip" key={c.id} onClick={()=>insertConstant(c.value)} data-testid={`constant-${c.id}`} title={t(c.labelKey)}>{c.shown}</button>)}</div></div>
+        </section>
+      </div>}
+       {screen==='history'&&<section className="panel tool-panel"><div className="section-head"><h2 className="section-title">{t('history')}</h2>{history.length>0&&<button className="text-button" onClick={()=>setHistory([])} data-testid="button-clear-history-page">{t('clear')}</button>}</div>
+         {history.length===0?<div className="empty-state"><div className="empty-mark"><History size={20}/></div><strong>{t('noHistory')}</strong><span>{t('historyHint')}</span></div>:<div className="history-list">{history.map(item=><button className="history-item" key={item.id} onClick={()=>useHistory(item)} data-testid={`history-page-item-${item.id}`}><span className="history-expression">{item.expression}</span><span className="history-result">= {item.result}</span></button>)}</div>}
+       </section>}
+       {screen==='converter'&&<div className="below-grid" style={{gridTemplateColumns:'1fr'}}>
+        <section className="panel tool-panel">
+          <div className="section-head"><h2 className="section-title">{t('converter')}</h2><ArrowLeftRight size={19} color="hsl(var(--primary))"/></div>
+          <label className="eyebrow" htmlFor="quantity-select">{t('quantity')}</label>
+          <div className="tool-select-row"><select className="select-field" id="quantity-select" value={group} onChange={e=>selectGroup(e.target.value)} data-testid="select-quantity">{['length','mass','temperature','volume','time'].map(g=><option value={g} key={g}>{t(g)}</option>)}</select></div>
+          <div className="below-grid" style={{marginTop:8}}>
+            <label><span className="eyebrow">{t('value')}</span><input className="number-field" type="number" value={unitValue} onChange={e=>setUnitValue(e.target.value)} data-testid="input-conversion-value"/></label>
+            <label><span className="eyebrow">{t('result')}</span><div className="conversion-result" data-testid="text-conversion-result">{conversionOutput}</div></label>
+          </div>
+          <div className="tool-select-row"><select className="select-field" aria-label={t('from')} value={unitFrom} onChange={e=>setUnitFrom(e.target.value)} data-testid="select-unit-from">{units.map(u=><option key={u.id} value={u.id}>{t(u.id)}</option>)}</select><ArrowLeftRight size={18}/><select className="select-field" aria-label={t('to')} value={unitTo} onChange={e=>setUnitTo(e.target.value)} data-testid="select-unit-to">{units.map(u=><option key={u.id} value={u.id}>{t(u.id)}</option>)}</select></div>
+        </section>
+      </div>}
+      {screen==='constants'&&<section className="panel tool-panel"><div className="section-head"><h2 className="section-title">{t('constants')}</h2><FlaskConical size={20} color="hsl(var(--primary))"/></div><p className="subtitle">{t('constantsHint')}</p><div className="constants-row">{constants.map(c=><button className="constant-chip" key={c.id} onClick={()=>insertConstant(c.value)} data-testid={`constant-select-${c.id}`}><strong>{c.shown}</strong> · {t(c.labelKey)}</button>)}</div><button className="text-button" style={{marginTop:18}} onClick={()=>setScreen('calculator')}>{t('calculator')}</button></section>}
+       {screen==='references'&&<section className="panel tool-panel"><div className="section-head"><h2 className="section-title">{t('references')}</h2><BookOpen size={20} color="hsl(var(--primary))"/></div><div className="settings-list">{['referenceSin','referenceCos','referenceTan','referenceLog','referenceLn','referencePi','referenceE','referenceSquare','referenceSqrt','referencePower','referenceAngles','referenceGolden','referenceConversions'].map((key,i)=><div className="setting-row" key={key}><div className="setting-copy"><strong>{['sin','cos','tan','log','ln','π','e','x²','√','xʸ','DEG / RAD','φ','↔'][i]}</strong><small>{t(key)}</small></div></div>)}</div></section>}
+      {['about','rules','terms','credits'].includes(screen)&&<section className="panel tool-panel"><div className="section-head"><h2 className="section-title">{t(screen)}</h2><Info size={20} color="hsl(var(--primary))"/></div><div className="modal-copy">
+        {screen==='about'&&<p>{t('aboutText')}</p>}
+        {screen==='credits'&&<p>{t('creditsText')}</p>}
+         {screen==='terms'&&<><p>{t('termsText')}</p>{(['termsAcceptance','termsUse','termsAccuracy','termsResponsibility','termsIntellectual','termsChanges','termsAvailability','termsContact'] as const).map(key=><section className="legal-section" key={key}><h3>{t(key)}</h3><p>{t(`${key}Text`)}</p></section>)}</>}
+         {screen==='rules'&&<><p>{t('rulesIntro')}</p><h3>{t('ruleOrder')}</h3><p>{t('ruleOrderText')}</p><h3>{t('rulePercent')}</h3><p>{t('rulePercentText')}</p><h3>{t('ruleAngles')}</h3><p>{t('ruleAnglesText')}</p><h3>{t('ruleVerify')}</h3><p>{t('ruleVerifyText')}</p><h3>{t('ruleResponsible')}</h3><p>{t('ruleResponsibleText')}</p><h3>{t('ruleSecurity')}</h3><p>{t('ruleSecurityText')}</p></>}
+      </div></section>}
+      {screen==='settings'&&<section className="panel tool-panel"><div className="section-head"><h2 className="section-title">{t('settings')}</h2><Settings2 size={20} color="hsl(var(--primary))"/></div>
+        <div className="settings-list">
+          <div className="setting-row"><div className="setting-copy"><strong>{t('language')}</strong><small>{languages.find(x=>x.id===lang)?.label}</small></div><button className="language-trigger" onClick={()=>setModal('language')}><Languages size={16}/>{t('chooseLanguage')}</button></div>
+          <div className="setting-row"><div className="setting-copy"><strong>{t('darkMode')}</strong><small>{t('darkHint')}</small></div><button className={`toggle ${dark?'on':''}`} role="switch" aria-checked={dark} aria-label={t('darkMode')} onClick={()=>setDark(v=>!v)}><span/></button></div>
+          <div className="setting-row"><div className="setting-copy"><strong>{t('animations')}</strong><small>{t('animationsHint')}</small></div><button className={`toggle ${motion?'on':''}`} role="switch" aria-checked={motion} aria-label={t('animations')} onClick={()=>setMotion(v=>!v)}><span/></button></div>
+          <div className="setting-row"><div className="setting-copy"><strong>{t('angleSetting')}</strong><small>{radians?t('radians'):t('degrees')}</small></div><button className="language-trigger" onClick={()=>setRadians(v=>!v)} aria-label={t('angleSetting')} data-testid="button-angle-setting">{radians?t('radians'):t('degrees')}</button></div>
+          <div className="setting-row"><div className="setting-copy"><strong>{t('history')}</strong><small>{t('clearHistory')}</small></div><button className="text-button" onClick={()=>setHistory([])} data-testid="button-clear-history-settings">{t('clearHistory')}</button></div>
+        </div>
+      </section>}
+      <footer className="footer"><span>{t('author')} · {t('copyright')}</span><div className="footer-links">{(['about','rules','terms','credits'] as Screen[]).map(id=><button key={id} onClick={()=>setScreen(id)} data-testid={`footer-${id}`}>{t(id)}</button>)}</div></footer>
+    </main>
+    <div className={`drawer-backdrop ${drawer?'open':''}`} onClick={()=>setDrawer(false)} aria-hidden="true"/>
+    <aside className={`drawer ${drawer?'open':''}`} aria-label={t('menu')} aria-hidden={!drawer}>
+      <div className="drawer-top"><div className="brand"><div className="brand-mark">A</div><span className="brand-name">Adam Calculator</span></div><button className="icon-button" onClick={()=>setDrawer(false)} aria-label={t('close')}><X size={18}/></button></div>
+      <nav className="drawer-nav" aria-label={t('menu')}>
+        {menuGroups.map(group=><div className="drawer-group" key={group.label}>
+          <h2 className="drawer-section-title">{t(group.label)}</h2>
+          {group.items.map(id=>{
+            const Icon=navItems.find(item=>item.id===id)?.icon||Calculator;
+            return <button key={id} className={screen===id?'current':''} onClick={()=>{setScreen(id);setDrawer(false);}} data-testid={`nav-${id}`}><Icon size={17}/><span>{t(id)}</span></button>;
+          })}
+          {group.label==='calculator'&&<div className="drawer-modes" aria-label={t('calculator')}>{(['basic','scientific','advanced'] as Mode[]).map(item=><button key={item} type="button" className={mode===item?'selected':''} aria-pressed={mode===item} onClick={()=>{setMode(item);setScreen('calculator');setDrawer(false);}} data-testid={`drawer-mode-${item}`}>{t(item)}</button>)}</div>}
+        </div>)}
+      </nav>
+      <div className="drawer-caption">{t('author')}<br/>{t('copyright')}</div>
+    </aside>
+    {modal==='language'&&<div className="modal-overlay" onMouseDown={e=>{if(e.target===e.currentTarget)setModal(null);}}><section className="modal" role="dialog" aria-modal="true" aria-labelledby="language-title"><div className="modal-head"><h2 className="modal-title" id="language-title">{t('chooseLanguage')}</h2><button className="icon-button" onClick={()=>setModal(null)} aria-label={t('close')}><X size={18}/></button></div><div className="language-grid">{languages.map(l=><button key={l.id} className={`language-choice ${lang===l.id?'selected':''}`} onClick={()=>{setLang(l.id);setModal(null);}} data-testid={`language-${l.id}`}><span>{l.flag}</span><span>{l.label}</span>{lang===l.id&&<Check size={16}/>}</button>)}</div></section></div>}
+  </div>;
+}
+
+export default App;
